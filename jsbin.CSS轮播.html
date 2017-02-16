@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2017 by anonymous (http://jsbin.com/cufaxazevu/4/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <style>
+    *{margin: 0; padding: 0;}
+    ol{list-style: none;}
+    .demo{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+    }
+    
+    .slides{
+      position: relative;
+      height: 300px;
+      width: 480px;
+      border-radius: 50%;
+    }                    /*相对定位,需设置宽高*/
+    .slides>li{
+      position:absolute;
+      display:none
+    }               /*绝对定位,height为0*/
+    .slides li img{
+      height: 300px;
+      width: 480px;
+      transform: rotate(180deg);   /*旋转*/
+      border-radius: 50%;    /*圆形*/
+      box-shadow: 10px 10px 5px #ddd;    /*边框阴影效果*/
+    }
+    input[name=currentslide]:nth-child(1):checked ~ .slides>li:nth-child(1),
+    input[name=currentslide]:nth-child(2):checked ~ .slides>li:nth-child(2),
+    input[name=currentslide]:nth-child(3):checked ~ .slides>li:nth-child(3),
+    input[name=currentslide]:nth-child(4):checked ~ .slides>li:nth-child(4),
+    input[name=currentslide]:nth-child(5):checked ~ .slides>li:nth-child(5),
+    input[name=currentslide]:nth-child(6):checked ~ .slides>li:nth-child(6),
+    input[name=currentslide]:nth-child(7):checked ~ .slides>li:nth-child(7){
+      display: block;
+      animation: slide 1s;
+      /*同一类选择器用“，”隔开，display 属性规定元素应该生成的框的类型*/
+    }
+    input[name=currentslide]:nth-child(1):checked ~ .labels>li:nth-child(1) > label,
+    input[name=currentslide]:nth-child(2):checked ~ .labels>li:nth-child(2) > label,
+    input[name=currentslide]:nth-child(3):checked ~ .labels>li:nth-child(3) > label,
+    input[name=currentslide]:nth-child(4):checked ~ .labels>li:nth-child(4) > label,
+    input[name=currentslide]:nth-child(5):checked ~ .labels>li:nth-child(5) > label,
+    input[name=currentslide]:nth-child(6):checked ~ .labels>li:nth-child(6) > label,
+    input[name=currentslide]:nth-child(7):checked ~ .labels>li:nth-child(7) > label{
+      background: rgb(255,60,60);
+      color: pink;
+      
+    }
+    input[name=currentslide]{
+      display: none;
+    }
+    .labels{
+      display: flex;
+    }
+    .labels label{
+      width: 15px;
+      height: 15px;
+      background: rgb(50,150,255);
+      display: block;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 20px;
+      margin: 5px;
+    }
+    @keyframes slide{
+      from{
+        opacity: 0.7;
+      }
+      to{
+        opacity: 1;
+      }
+    }
+         /*CSS3知识点keyframes：关键帧，opacity：设置透明度*/
+  </style>
+</head>
+<body>
+  <section class="demo">
+    <input type="radio" name="currentslide" id="slide14" checked>
+    <input type="radio" name="currentslide" id="slide13">
+    <input type="radio" name="currentslide" id="slide12">
+    <input type="radio" name="currentslide" id="slide11">
+    <input type="radio" name="currentslide" id="slide10">
+    <input type="radio" name="currentslide" id="slide09">
+    <input type="radio" name="currentslide" id="slide08">
+    
+    <!--原句简写为input:radio[name=currentslide][id=slide$@-08]*7-->
+    
+    <ol class=slides>
+      <li><img src="http://p1.bqimg.com/567571/b2ce93c789faa218.jpg" alt=""></li>
+      <li><img src="http://p1.bqimg.com/567571/c0de6b7fe602fa8b.jpg" alt=""></li>
+      <li><img src="http://i1.piimg.com/567571/040c09edfb4b7962.jpg" alt=""></li>
+      <li><img src="http://i1.piimg.com/567571/465fcf8ea262fd54.jpg" alt=""></li>
+      <li><img src="http://p1.bqimg.com/567571/5418c30e88ce5af4.jpg" alt=""></li>
+      <li><img src="http://i1.piimg.com/567571/3f727a36a43c3393.jpg" alt=""></li>
+      <li><img src="http://p1.bpimg.com/567571/f0024b44709c835b.jpg" alt=""></li>
+    </ol>
+    <ol class="labels">
+      <li><label for="slide14"></label></li>
+      <li><label for="slide13"></label></li>
+      <li><label for="slide12"></label></li>
+      <li><label for="slide11"></label></li>
+      <li><label for="slide10"></label></li>
+      <li><label for="slide09"></label></li>
+      <li><label for="slide08"></label></li>
+    </ol>
+  </section>
+           <!--section和div功能类似-->
+</body>
+</html>
